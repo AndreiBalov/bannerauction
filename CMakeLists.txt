@@ -1,0 +1,29 @@
+cmake_minimum_required(VERSION 3.0)
+
+project(auction C CXX)
+
+include(CTest)
+
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP /W4")
+SET(CMAKE_CXX_STANDART 11)
+SET(CMAKE_CXX_STANDART_REQUIRED ON)
+
+SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin CACHE PATH "Runtime output dir")
+SET(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib CACHE PATH "Library output dir")
+SET(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib CACHE PATH "Library output dir")
+
+SET(INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+file(GLOB AUCTIONSRC ${CMAKE_CURRENT_SOURCE_DIR}/src/*.h ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
+					${CMAKE_CURRENT_SOURCE_DIR}/include/*.h ${CMAKE_CURRENT_SOURCE_DIR}/include/*.cpp)
+
+add_library(${PROJECT_NAME} STATIC
+${AUCTIONSRC})
+
+target_include_directories(${PROJECT_NAME} PRIVATE ${INCLUDE_DIR})
+
+enable_testing()
+
+if(BUILD_TESTING)
+    add_subdirectory(tests)
+endif()
