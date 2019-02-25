@@ -1,10 +1,10 @@
-#include "auction.h"
+п»ї#include "auction.h"
 
 using namespace Auction;
 
 int main()
 {
-    // в выбору должны попадать банеры с самой высокой ценой
+    // РІ РІС‹Р±РѕСЂСѓ РґРѕР»Р¶РЅС‹ РїРѕРїР°РґР°С‚СЊ Р±Р°РЅРµСЂС‹ СЃ СЃР°РјРѕР№ РІС‹СЃРѕРєРѕР№ С†РµРЅРѕР№
     std::vector<Banner> banners;
     banners.emplace_back(Banner{ 200, 1,{ CountryId::RUSSIA, CountryId::USA, CountryId::FRANCE } });
     banners.emplace_back(Banner{ 100, 2,{ CountryId::USA, CountryId::FRANCE, CountryId::RUSSIA } });

@@ -1,4 +1,4 @@
-#ifndef AUCTION_H
+п»ї#ifndef AUCTION_H
 #define AUCTION_H
 
 #include "banner.h"
@@ -34,16 +34,16 @@ public:
         if (!slotsCount)
             return Status::INVALID_ARGUMENT;
 
-        // для группировки по ценам и сортировки
+        // РґР»В¤ РіСЂСѓРїРїРёСЂРѕРІРєРё РїРѕ С†РµРЅР°Рј Рё СЃРѕСЂС‚РёСЂРѕРІРєРё
         std::multimap<uint32_t, const Banner*> auxMap;
         for (const auto& banner : bannersInput)
         {
             auxMap.insert(std::pair<uint32_t, const Banner*>(banner.m_price, &banner));
         }
 
-        std::set<int> idCheck; // для соблюдения уникальности id 
+        std::set<int> idCheck; // РґР»В¤ СЃРѕР±Р»СЋРґРµРЅРёВ¤ СѓРЅРёРєР°Р»СЊРЅРѕСЃС‚Рё id 
         size_t leftSlots = slotsCount;
-        // с конца потому что отсортировано по возрастанию
+        // СЃ РєРѕРЅС†Р° РїРѕС‚РѕРјСѓ С‡С‚Рѕ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРѕ РїРѕ РІРѕР·СЂР°СЃС‚Р°РЅРёСЋ
         for (auto crb = auxMap.crbegin(); crb != auxMap.crend(); ++crb)
         {
             auto res = auxMap.equal_range(crb->second->m_price);
@@ -54,7 +54,7 @@ public:
                 auto& banner = pair.second;
                 if(filterFunction(banner, filterArg))
                 {
-                    // проверка уникального id
+                    // РїСЂРѕРІРµСЂРєР° СѓРЅРёРєР°Р»СЊРЅРѕРіРѕ id
                     if (idCheck.find(banner->m_uid) == idCheck.end())
                     {
                         idCheck.insert(banner->m_uid);
@@ -116,8 +116,8 @@ public:
     }
 
     /*!
-    * Фильтр по странам
-    * /brief Для добавления фильтра по другом упараметру перегрузите эту функцию с другим вторым параметром
+    * вЂРёР»СЊС‚СЂ РїРѕ СЃС‚СЂР°РЅР°Рј
+    * /brief Ж’Р»В¤ РґРѕР±Р°РІР»РµРЅРёВ¤ С„РёР»СЊС‚СЂР° РїРѕ РґСЂСѓРіРѕРј СѓРїР°СЂР°РјРµС‚СЂСѓ РїРµСЂРµРіСЂСѓР·РёС‚Рµ СЌС‚Сѓ С„СѓРЅРєС†РёСЋ СЃ РґСЂСѓРіРёРј РІС‚РѕСЂС‹Рј РїР°СЂР°РјРµС‚СЂРѕРј
     */
     static bool countryFilter(const Banner* banner, CountryId country);
 };

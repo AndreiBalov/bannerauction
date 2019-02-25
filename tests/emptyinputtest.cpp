@@ -1,10 +1,10 @@
-#include "auction.h"
+п»ї#include "auction.h"
 
 using namespace Auction;
 
 int main()
 {
-    // на вход пустой массив
+    // РЅР° РІС…РѕРґ РїСѓСЃС‚РѕР№ РјР°СЃСЃРёРІ
     std::vector<Banner> banners;
     AuctionControl auction;
     std::vector<Banner> filtered;

@@ -1,10 +1,10 @@
-#include "auction.h"
+п»ї#include "auction.h"
 
 using namespace Auction;
 
 int main()
 {
-    // если подходящих баннеров больше чем оставшихся мест, то баннеры будут выбраны случайно
+    // РµСЃР»Рё РїРѕРґС…РѕРґСЏС‰РёС… Р±Р°РЅРЅРµСЂРѕРІ Р±РѕР»СЊС€Рµ С‡РµРј РѕСЃС‚Р°РІС€РёС…СЃСЏ РјРµСЃС‚, С‚Рѕ Р±Р°РЅРЅРµСЂС‹ Р±СѓРґСѓС‚ РІС‹Р±СЂР°РЅС‹ СЃР»СѓС‡Р°Р№РЅРѕ
     std::vector<Banner> banners;
     banners.emplace_back(Banner{ 200, 1,{ CountryId::RUSSIA, CountryId::USA, CountryId::FRANCE } });
     banners.emplace_back(Banner{ 200, 2,{ CountryId::USA, CountryId::FRANCE, CountryId::RUSSIA } });

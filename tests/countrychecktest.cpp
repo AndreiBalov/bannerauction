@@ -1,10 +1,10 @@
-#include "auction.h"
+п»ї#include "auction.h"
 
 using namespace Auction;
 
 int main()
 {
-    // проверить что все банеры удовлетворяют условию страны
+    // РїСЂРѕРІРµСЂРёС‚СЊ С‡С‚Рѕ РІСЃРµ Р±Р°РЅРµСЂС‹ СѓРґРѕРІР»РµС‚РІРѕСЂСЏСЋС‚ СѓСЃР»РѕРІРёСЋ СЃС‚СЂР°РЅС‹
     std::vector<Banner> banners;
     banners.emplace_back(Banner{ 200, 1,{ CountryId::RUSSIA, CountryId::USA, CountryId::FRANCE } });
     banners.emplace_back(Banner{ 100, 2,{ CountryId::USA, CountryId::FRANCE } });
