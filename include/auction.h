@@ -26,7 +26,7 @@ class AuctionControl
 public:
     template <class FType, class FFunc>
     Status bannerfilter(const std::vector<Banner>& bannersInput, std::vector<Banner>& bannersOutput,
-        const uint32_t slotsCount, FType filterArg, FFunc filterFunction/*std::function<bool(AuctionControl&, const Banner*, FType)>*/)
+        const uint32_t slotsCount, FType filterArg, FFunc filterFunction/*std::function<bool(const Banner*, FType)>*/)
     {
         if (!bannersInput.size())
             return Status::INVALID_ARGUMENT;
